@@ -68,7 +68,7 @@ Ve = R * Vb;
 
 sys(1:2) = Ve(1:2);
 sys(3:4) = dVb(1:2);
-sys(5) = (3);
+sys(5) = omega(3);
 sys(6) = dOmega(3);
 
 
