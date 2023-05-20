@@ -4,6 +4,9 @@ clc;
 
 format long;
 
+path = 4;   %% 1: 圆形; 2:正弦; 3:U型; 4:8字型;
+M = 10; %% 学习次数
+
 tf = 20; 
 dt = 0.01;
 t = [0:dt:tf]';
@@ -17,7 +20,6 @@ T1 = T1';
 T2 = T2';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-M = 10;
 Xsum = [];
 Ysum = [];
 for i = 0:1:M   
@@ -43,9 +45,9 @@ for i = 0:1:M
     hold on;
     plot(x.data, y.data, 'r-');
     
-    disp(i);
-    disp(mean(abs(xd.data - x.data)));
-    disp(mean(abs(yd.data - y.data)));
+%     disp(i);
+%     disp(mean(abs(xd.data - x.data)));
+%     disp(mean(abs(yd.data - y.data)));
 end
 
 figure(2);
@@ -54,3 +56,4 @@ hold on;
 plot(Xsum(:, 1), Ysum(:, 1), 'g-');
 hold on;
 plot(Xsum(:, end), Ysum(:, end), 'r-');
+legend('规划路径', 'pid路径', '学习10次后路径');
